@@ -346,26 +346,6 @@ window.checkout = async () => {
         return;
     }
 
-    // 在庫不足チェック
-    for (const c of cart) {
-        if (products[c.i].stock < c.qty) {
-            alert("在庫不足：" + products[c.i].name +
-                  "\n在庫は " + products[c.i].stock + " 個です。");
-            return;
-        }
-    }
-
-    const total = totalPrice();
-
-    const paid = Number(document.getElementById("paid").value) || 0;
-
-    if (paid < total) {
-        alert("お預かり金額が不足しています");
-        return;
-    }
-
-    // 以下は元のコードのまま…
-    
     const total = totalPrice();
 
     const paid = Number(document.getElementById("paid").value)||0;
